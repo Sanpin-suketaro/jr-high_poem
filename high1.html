@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【高校範囲対応】近代・現代詩の深層学習完全マスター</title>
+    <!-- Tailwind CSS for rich styled responsive layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f6f5f2; /* 落ち着いた和モダンな背景色 */
+        }
+        .serif-text {
+            font-family: 'BIZ UDMincho', 'YuMincho', 'ヒラギノ明朝 ProN', serif;
+        }
+        /* アニメーション用 */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-[#2c3e50] antialiased">
+
+    <!-- ヘッダーエリア -->
+    <header class="bg-[#1e2e3d] text-[#f6f5f2] border-b-4 border-[#c0392b] py-8 px-4 text-center shadow-lg">
+        <div class="max-w-5xl mx-auto">
+            <span class="bg-[#c0392b] text-white text-sm font-bold tracking-widest px-3 py-1 rounded-full uppercase">高校国語・言語文化／現代の国語対応</span>
+            <h1 class="serif-text text-3xl md:text-5xl font-bold mt-4 tracking-wide leading-tight">近代・現代詩の深層学習完全マスター</h1>
+            <p class="text-base md:text-xl mt-3 text-gray-300">中学の復習から高校レベルの高度なレトリック・文学史・解釈技法まで網羅</p>
+        </div>
+    </header>
+
+    <!-- メインレイアウト -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- ナビゲーションメニュー (アコーディオン、タブ構造) -->
+        <nav class="grid grid-cols-2 md:grid-cols-6 gap-2 mb-8 bg-white p-2 rounded-xl shadow-md border border-gray-200">
+            <button onclick="switchTab('intro')" id="btn-intro" class="tab-btn active bg-[#1e2e3d] text-white py-3 px-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200">
+                <i class="fa-solid fa-map"></i> 導入マップ
+            </button>
+            <button onclick="switchTab('rhetoric')" id="btn-rhetoric" class="tab-btn text-[#1e2e3d] hover:bg-gray-100 py-3 px-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> 表現技法の極致
+            </button>
+            <button onclick="switchTab('history')" id="btn-history" class="tab-btn text-[#1e2e3d] hover:bg-gray-100 py-3 px-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200">
+                <i class="fa-solid fa-scroll"></i> 日本詩壇文学史
+            </button>
+            <button onclick="switchTab('works')" id="btn-works" class="tab-btn text-[#1e2e3d] hover:bg-gray-100 py-3 px-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200">
+                <i class="fa-solid fa-book-open"></i> 名詩の徹底読解
+            </button>
+            <button onclick="switchTab('method')" id="btn-method" class="tab-btn text-[#1e2e3d] hover:bg-gray-100 py-3 px-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200">
+                <i class="fa-solid fa-pen-nib"></i> 記述解答の鉄則
+            </button>
+            <button onclick="switchTab('quiz')" id="btn-quiz" class="tab-btn text-[#c0392b] hover:bg-red-50 py-3 px-2 rounded-lg font-bold text-sm md:text-base border border-dashed border-[#c0392b] transition-all duration-200">
+                <i class="fa-solid fa-graduation-cap"></i> 高校応用テスト
+            </button>
+        </nav>
+
+        <!-- ==================== TAB 1: 導入マップ ==================== -->
+        <div id="intro" class="tab-content active bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100">
+            <h2 class="serif-text text-3xl font-bold text-[#1e2e3d] mb-6 border-b-4 border-[#1e2e3d] pb-2">なぜ高校の現代詩は難しく感じるのか？</h2>
+            
+            <p class="text-lg md:text-xl leading-relaxed mb-6">
+                中学校のテストでは、主に「詩の種類（口語自由詩など）」や「直喩・擬人法などの単純なレトリックの指摘」が中心でした。<br>
+                しかし、高校の国語（言語文化や現代の国語）に突入すると、<strong>詩は「言葉のパズル」から「人間の内面・思想の象徴」へと一気に進化します。</strong>
+            </p>
+
+            <!-- 視覚的比較図解 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                <div class="bg-gray-50 border-t-4 border-gray-400 p-6 rounded-xl">
+                    <span class="text-sm font-bold text-gray-500 block mb-1">【これまでの国語（中学レベル）】</span>
+                    <h3 class="text-xl font-bold text-[#1e2e3d] mb-3">言葉の表面を捉える学び</h3>
+                    <ul class="space-y-2 text-base text-gray-700">
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> 「口語」か「文語」かの単純な区別</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> 「まるで〜のようだ」があれば直喩、と覚える</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> 詩の「およその意味」を感情的に掴む</li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 border-t-4 border-[#c0392b] p-6 rounded-xl">
+                    <span class="text-sm font-bold text-[#c0392b] block mb-1">【これからの国語（高校・入試レベル）】</span>
+                    <h3 class="text-xl font-bold text-[#c0392b] mb-3">言葉の裏のレトリックと歴史を暴く</h3>
+                    <ul class="space-y-2 text-base text-gray-800">
+                        <li><i class="fa-solid fa-circle-check text-red-500 mr-2"></i> <strong>「象徴（シンボル）」</strong>による抽象概念の具体化を解読</li>
+                        <li><i class="fa-solid fa-circle-check text-red-500 mr-2"></i> <strong>「換喩」「提喩」</strong>といった隣接関係のレトリック</li>
+                        <li><i class="fa-solid fa-circle-check text-red-500 mr-2"></i> 明治から戦後までの<strong>「文学史（思潮）」</strong>を背景にした読解</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-[#fffdf5] border-l-8 border-[#e67e22] p-6 rounded-lg my-6">
+                <h4 class="font-bold text-[#e67e22] text-xl mb-2">🎯 高校範囲の詩の攻略に必要な「3本の矢」</h4>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                    1. <strong>高度なレトリック（表現技法）の理解：</strong> 換喩・提喩・共感覚表現をマスターする。<br>
+                    2. <strong>文学史（近代詩の流れ）：</strong> 詩人がどんな時代背景（ロマン主義、象徴主義、モダニズム、戦後思想）で書いたかを知る。<br>
+                    3. <strong>構造的読解力：</strong> 詩の「行間」に隠された、語り手（話者）の葛藤や社会的・哲学的メッセージを抽出する。
+                </p>
+            </div>
+
+            <p class="text-lg text-gray-600 mt-6 text-center italic">上のタブから各セクションを順に、または必要な箇所を集中して学習しましょう。</p>
+        </div>
+
+        <!-- ==================== TAB 2: 表現技法の極致 ==================== -->
+        <div id="rhetoric" class="tab-content bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100">
+            <h2 class="serif-text text-3xl font-bold text-[#1e2e3d] mb-6 border-b-4 border-[#1e2e3d] pb-2">高校で登場する「高度なレトリック」</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                直喩や隠喩、擬人法だけで詩は書かれていません。高校現代文や入試で当たり前に登場する、一歩進んだ比喩表現と修辞技法を完全解説します。
+            </p>
+
+            <!-- 比喩の深層マップ -->
+            <div class="space-y-8">
+                <!-- 1. 象徴 (Symbol) -->
+                <div class="bg-gradient-to-r from-slate-50 to-slate-100 border-l-4 border-slate-700 p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-slate-700 text-white text-xs font-bold px-2.5 py-1 rounded">高校重要度：最上級</span>
+                        <h3 class="text-2xl font-bold text-slate-800 m-0 p-0 bg-transparent border-0">象徴（しょうちょう / シンボル）</h3>
+                    </div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        愛、孤独、絶望、国家、時間といった<strong>「形のない抽象的な概念」を、「具体的な事物」に置き換えて表現する</strong>手法。
+                    </p>
+                    <div class="bg-white p-4 rounded-lg border border-slate-200">
+                        <p class="font-bold text-slate-600 text-sm mb-1">【具体例】</p>
+                        <p class="serif-text text-xl text-gray-800 italic">「鳩」で「平和」を表す。「十字架」で「受難・信仰」を表す。<br>萩原朔太郎の詩において「竹」は「鋭く病める心の神経」の象徴とされる。</p>
+                    </div>
+                    <p class="text-base text-gray-600 mt-3">
+                        <strong>💡 入試突破のコツ：</strong> 詩の中に不自然に何度も登場する物体や自然物（風、窓、林檎、星など）は、高確率で何らかの感情や思想を表現する「象徴」です。
+                    </p>
+                </div>
+
+                <!-- 2. 換喩 (Metonymy) -->
+                <div class="bg-gradient-to-r from-blue-50 to-blue-100 border-l-4 border-blue-700 p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-blue-700 text-white text-xs font-bold px-2.5 py-1 rounded">高校重要度：高</span>
+                        <h3 class="text-2xl font-bold text-blue-800 m-0 p-0 bg-transparent border-0">換喩（かんゆ / メトニミー）</h3>
+                    </div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        表現したい事柄と、<strong>時間的・空間的・論理的に密接な関係（隣接性）を持つ他の事物</strong>で言い換える手法。
+                    </p>
+                    <div class="bg-white p-4 rounded-lg border border-blue-200">
+                        <p class="font-bold text-blue-600 text-sm mb-1">【具体例】</p>
+                        <p class="serif-text text-xl text-gray-800 italic">「永田町」が「日本の政界」を表す（場所で中身を表す）。<br>「彼は<strong>ペン</strong>を武器に戦った」の「ペン」＝「言論・文章力」を表す（道具で効能を表す）。</p>
+                    </div>
+                    <p class="text-base text-gray-600 mt-3">
+                        <strong>💡 入試突破のコツ：</strong> 道具や衣服、場所が、主語や目的語に置かれているときは、換喩である可能性を疑いましょう。
+                    </p>
+                </div>
+
+                <!-- 3. 提喩 (Synecdoche) -->
+                <div class="bg-gradient-to-r from-green-50 to-green-100 border-l-4 border-green-700 p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-green-700 text-white text-xs font-bold px-2.5 py-1 rounded">高校重要度：中</span>
+                        <h3 class="text-2xl font-bold text-green-800 m-0 p-0 bg-transparent border-0">提喩（ていゆ / シネクドキ）</h3>
+                    </div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        物事の「一部分」で「全体」を表したり、逆に「全体」で「一部」を表したりする（包含関係・類種関係を利用した）比喩。
+                    </p>
+                    <div class="bg-white p-4 rounded-lg border border-green-200">
+                        <p class="font-bold text-green-600 text-sm mb-1">【具体例】</p>
+                        <p class="serif-text text-xl text-gray-800 italic">「人は<strong>パン</strong>のみにて生きるにあらず」の「パン」＝「すべての食料（または物質的豊かさ）」を表す。<br>「春にお<strong>花見</strong>に行く」の「お花」＝「桜」という特定の種を表す。</p>
+                    </div>
+                </div>
+
+                <!-- 4. 共感覚表現 (Synesthesia) -->
+                <div class="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-amber-700 p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-amber-700 text-white text-xs font-bold px-2.5 py-1 rounded">高校重要度：極めて高</span>
+                        <h3 class="text-2xl font-bold text-amber-800 m-0 p-0 bg-transparent border-0">共感覚表現（きょうかんかくひょうげん）</h3>
+                    </div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        本来は異なる感覚領域（視覚、聴覚、触覚、味覚、嗅覚）を<strong>重ね合わせて、1つの表現に融合させる</strong>手法。
+                    </p>
+                    <div class="bg-white p-4 rounded-lg border border-amber-200">
+                        <p class="font-bold text-amber-600 text-sm mb-1">【具体例】</p>
+                        <p class="serif-text text-xl text-gray-800 italic">「<strong>黄色い</strong>声」＝（聴覚の「声」を、視覚の「黄色」で表す）<br>「<strong>冷たい</strong>メロディ」＝（聴覚の「メロディ」を、皮膚感覚の「冷たい」で表す）</p>
+                    </div>
+                    <p class="text-base text-gray-600 mt-3">
+                        <strong>💡 定期テスト頻出：</strong> 北原白秋など「感覚的な詩人」の作品でよく出題されます。「どの感覚とどの感覚の組み合わせか」を記述させる問題が非常に多いです。
+                    </p>
+                </div>
+            </div>
+
+            <!-- その他の修辞技法 -->
+            <h3 class="text-2xl font-bold text-[#1e2e3d] mt-10 mb-4">高校テストで差がつく修辞的構造</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-5 bg-stone-100 rounded-xl">
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">● リフレイン（首句反復・行頭反復）</h4>
+                    <p class="text-base leading-relaxed text-gray-700">
+                        同一の言葉を行頭や連頭で繰り返す手法。詩のリズムを急速に高め、感情の「熱量」や「こだわり」を読み手に強制的に意識させます。（例：谷川俊太郎『春に』の「このきもちはいったい何だろう」）
+                    </p>
+                </div>
+                <div class="p-5 bg-stone-100 rounded-xl">
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">● 押韻（おういん / 脚韻・頭韻）</h4>
+                    <p class="text-base leading-relaxed text-gray-700">
+                        特定の行の最初（頭韻）や最後（脚韻）に、同じ母音や子音の言葉を意図的に揃えること。日本語の詩では「七五調」などの音数律と並んで、音楽的な心地よさを生むために用いられます。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB 3: 日本詩壇文学史 ==================== -->
+        <div id="history" class="tab-content bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100">
+            <h2 class="serif-text text-3xl font-bold text-[#1e2e3d] mb-6 border-b-4 border-[#1e2e3d] pb-2">日本の近代・現代詩史（文学史の流れ）</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                高校国語の入試や定期テストでは、詩人の「名前」と「その詩人が属した流派（思潮）」を一致させる問題が定番です。詩の形式の歴史的な移り変わりを理解しましょう。
+            </p>
+
+            <!-- 詩の歴史年表カード -->
+            <div class="space-y-8 relative border-l-4 border-dashed border-[#1e2e3d] pl-6 md:pl-10 ml-4">
+                
+                <!-- 明治期 -->
+                <div class="relative">
+                    <div class="absolute -left-[35px] md:-left-[51px] top-1.5 bg-[#1e2e3d] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-xs">明</div>
+                    <span class="text-sm font-bold text-[#c0392b]">1. 明治時代（近代詩の始まり）</span>
+                    <h3 class="text-2xl font-bold text-[#1e2e3d] m-0 mt-1 mb-3 p-0 bg-transparent border-0">新体詩からロマン主義へ</h3>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        江戸時代までの漢詩や和歌に代わり、西洋の詩の影響を受けて日本語による新しい詩形式を作る試みが始まりました（『新体詩抄』）。その後、個人の自由な感情や恋愛を美しく表現する<strong>ロマン主義</strong>が全盛を迎えます。
+                    </p>
+                    <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                        <p class="font-bold text-amber-800 text-sm mb-1">▼ 代表的な詩人と作品</p>
+                        <p class="serif-text text-lg">
+                            <strong>島崎藤村（しまざきとうそん）</strong>：詩集『若菜集』（「初恋」など。文語定型詩の極致）<br>
+                            <strong>与謝野晶子（よさのあきこ）</strong>：情熱的な自己表現と恋愛の謳歌。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 大正期 -->
+                <div class="relative">
+                    <div class="absolute -left-[35px] md:-left-[51px] top-1.5 bg-[#1e2e3d] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-xs">大</div>
+                    <span class="text-sm font-bold text-[#c0392b]">2. 大正時代（感覚と日常の発見）</span>
+                    <h3 class="text-2xl font-bold text-[#1e2e3d] m-0 mt-1 mb-3 p-0 bg-transparent border-0">象徴主義・民衆詩・そして口語自由詩の確立</h3>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        言葉の響きや象徴的なイメージで捉えどころのない美を歌う「象徴主義」や、労働者や日常の素朴な暮らしを率直に歌う「民衆詩派」が現れます。そして、ついに日常語で深い芸術詩を書く<strong>口語自由詩</strong>が真に完成します。
+                    </p>
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                        <p class="font-bold text-blue-800 text-sm mb-1">▼ 代表的な詩人と作品</p>
+                        <p class="serif-text text-lg">
+                            <strong>北原白秋（きたはらはくしゅう）</strong>：象徴詩・官能的で色彩豊かな共感覚表現。<br>
+                            <strong>萩原朔太郎（はぎわらさくたろう）</strong>：詩集『月に吠える』（口語自由詩の完成者。病的な内面、恐怖や哀愁を表現）。<br>
+                            <strong>宮沢賢治（みやざわけんじ）</strong>：詩集『春と修羅』（口語自由詩、独特なオノマトペ、宇宙的スケール）。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 昭和戦前・戦中 -->
+                <div class="relative">
+                    <div class="absolute -left-[35px] md:-left-[51px] top-1.5 bg-[#1e2e3d] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-xs">昭</div>
+                    <span class="text-sm font-bold text-[#c0392b]">3. 昭和戦前（モダニズムと精神の美）</span>
+                    <h3 class="text-2xl font-bold text-[#1e2e3d] m-0 mt-1 mb-3 p-0 bg-transparent border-0">芸術派（四季派）と昭和モダニズム</h3>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        都市文化の台頭に伴う知的でモダンな詩風（西脇順三郎など）の一方で、日本の豊かな自然の抒情とクラシックな美を融合させた「四季派」が、多くの若者の心に深く染み渡りました。
+                    </p>
+                    <div class="bg-green-50 p-4 rounded-xl border border-green-200">
+                        <p class="font-bold text-green-800 text-sm mb-1">▼ 代表的な詩人と作品</p>
+                        <p class="serif-text text-lg">
+                            <strong>中原中也（なかはらちゅうや）</strong>：詩集『山羊の歌』『在りし日の歌』（「汚れつちまつた悲しみに……」など。喪失と孤独、言葉の音楽性）。<br>
+                            <strong>三好達治（みよしたつじ）</strong>：東洋的な美と深い知性が融合した『測量船』。<br>
+                            <strong>立原道造（たちはらみちぞう）</strong>：夭折の建築家・詩人。繊細極まるソネット（十四行詩）形式の詩。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 戦後 -->
+                <div class="relative">
+                    <div class="absolute -left-[35px] md:-left-[51px] top-1.5 bg-[#1e2e3d] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-xs">戦</div>
+                    <span class="text-sm font-bold text-[#c0392b]">4. 戦後（戦災の荒野から新しい言葉へ）</span>
+                    <h3 class="text-2xl font-bold text-[#1e2e3d] m-0 mt-1 mb-3 p-0 bg-transparent border-0">「荒地」派と現代詩の開花</h3>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        悲惨な戦争体験を経て、これまでの美的な抒情詩を拒絶し、荒廃した現実を見据える「荒地派」が結成。その後、日常的な優しい言葉で、かつ誰よりも深く「生きる意味」や「社会における自己」を問い直す現代の詩が誕生しました。
+                    </p>
+                    <div class="bg-purple-50 p-4 rounded-xl border border-purple-200">
+                        <p class="font-bold text-purple-800 text-sm mb-1">▼ 代表的な詩人と作品</p>
+                        <p class="serif-text text-lg">
+                            <strong>茨木のり子（いばらぎのりこ）</strong>：『自分の感受性くらい』（自立精神、戦争責任への厳しい目）。<br>
+                            <strong>吉野弘（よしのひろし）</strong>：『祝婚歌』『I may be...』（平易な言葉で、人間社会の関わりや温かさを描く）。<br>
+                            <strong>谷川俊太郎（たにかわしゅんたろう）</strong>：『二十億光年の孤独』『朝のリレー』（平易で宇宙的な広がり。現代日本で最も親しまれる詩人）。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==================== TAB 4: 名詩の徹底読解 ==================== -->
+        <div id="works" class="tab-content bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100">
+            <h2 class="serif-text text-3xl font-bold text-[#1e2e3d] mb-6 border-b-4 border-[#1e2e3d] pb-2">高校国語・入試で最も狙われる4つの名作詩</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                単に詩を読むだけでなく、「何が」「どのように」テストで問われるかを、解答パーツを明示しながら深く解読します。
+            </p>
+
+            <!-- 1. 竹（萩原朔太郎） -->
+            <div class="mb-10 p-6 bg-slate-50 border border-slate-200 rounded-2xl">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-[#1e2e3d] text-white text-xs px-2 py-1 rounded">大正期 / 象徴主義</span>
+                    <h3 class="text-2xl font-bold text-slate-800 m-0 p-0 bg-transparent border-0">『竹』— 萩原朔太郎</h3>
+                </div>
+                <div class="serif-text text-xl bg-white p-4 border-l-4 border-slate-500 rounded my-4 leading-relaxed tracking-wider">
+                    光る地面に竹が生え、<br>
+                    青竹が生え、<br>
+                    地下には竹の根が生え、<br>
+                    根がしだいに細らみ、<br>
+                    竹の根の先から繊毛が生え、<br>
+                    かすかにふるえ、<br>
+                    生え。
+                </div>
+                <div class="space-y-3 mt-4 text-base">
+                    <p><strong>🔎 表現技法の特徴：</strong> 繰り返される「生え」による<strong>リフレイン</strong>と、行を細かく区切る緊迫したオノマトペ、および冷たく尖った色彩描写。</p>
+                    <p><strong>🎯 テストで問われる核心：</strong> 
+                        「地面からまっすぐに勢いよく生える竹」の持つ生命力と対比される形で、<strong>「地下の暗闇で震えている細い繊毛（根先）」</strong>が描かれている。<br>
+                        これは、作者自身の<strong>「過敏で、病んで、震えている繊細な神経（内面世界）」</strong>を象徴している。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. 汚れつちまつた悲しみに……（中原中也） -->
+            <div class="mb-10 p-6 bg-slate-50 border border-slate-200 rounded-2xl">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-[#1e2e3d] text-white text-xs px-2 py-1 rounded">昭和初期 / 四季派（抒情）</span>
+                    <h3 class="text-2xl font-bold text-slate-800 m-0 p-0 bg-transparent border-0">『汚れつちまつた悲しみに……』— 中原中也</h3>
+                </div>
+                <div class="serif-text text-xl bg-white p-4 border-l-4 border-slate-500 rounded my-4 leading-relaxed tracking-wider">
+                    汚れつちまつた悲しみに<br>
+                    今日も小雪の降りかかる<br>
+                    汚れつちまつた悲しみに<br>
+                    今日も風さへ吹きすぎる
+                </div>
+                <div class="space-y-3 mt-4 text-base">
+                    <p><strong>🔎 表現技法の特徴：</strong> 非常に整った<strong>四行一連（脚韻調）のリズム</strong>。口語（話し言葉）を使いながらも、文語に近い整然とした音楽的響きを持たせている。</p>
+                    <p><strong>🎯 テストで問われる核心：</strong> 
+                        「汚れつちまつた悲しみ」とは何のことか？<br>
+                        これは、社会の荒波や自分の人生に対する無力さ・諦め、あるいは大切な弟（や恋人）を失ったことによる<strong>「純粋さを失い、傷ついて固くなってしまった自分自身の悲しみ」</strong>。その悲しみにさえ、さらに冷たい小雪や風が情け容赦なく降りかかるという、絶対的な孤独と諦観（あきらめ）がテーマ。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3. 自分の感受性くらい（茨木のり子） -->
+            <div class="mb-10 p-6 bg-slate-50 border border-slate-200 rounded-2xl">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-[#1e2e3d] text-white text-xs px-2 py-1 rounded">戦後 / 荒地（社会派・自立）</span>
+                    <h3 class="text-2xl font-bold text-slate-800 m-0 p-0 bg-transparent border-0">『自分の感受性くらい』— 茨木のり子</h3>
+                </div>
+                <div class="serif-text text-xl bg-white p-4 border-l-4 border-slate-500 rounded my-4 leading-relaxed tracking-wider">
+                    ぱさぱさに乾いてゆく心を<br>
+                    ひとのせいにはするな<br>
+                    みずから水やりを怠っておいて<br>
+                    <br>
+                    自分の感受性くらい<br>
+                    自分で守れ<br>
+                    ばかものよ
+                </div>
+                <div class="space-y-3 mt-4 text-base">
+                    <p><strong>🔎 表現技法の特徴：</strong> 「〜するな」「自分で守れ」といった、読み手（および自分自身）に直接突き刺す強い<strong>「命令形・禁止表現」</strong>。<br>「心が乾く」に対し「水やりを怠る」という、生活用品・植物栽培のアナロジー（比喩）の巧みさ。</p>
+                    <p><strong>🎯 テストで問われる核心：</strong> 
+                        「ばかものよ」という叱咤（しった）の対象は誰か？<br>
+                        これは、世間が悪い、時代が悪い、友達が悪いと<strong>「他人のせいにして、自分の感受性（心のみずみずしさ、正義感、思いやり）が干からびていくのを見過ごしている、自分自身と甘えた大人たち」</strong>を指している。戦争を止められなかった大人たちへの批判から、自己決定と自己管理の尊厳を歌う。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 4. 永訣の朝（宮沢賢治） -->
+            <div class="mb-6 p-6 bg-slate-50 border border-slate-200 rounded-2xl">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-[#1e2e3d] text-white text-xs px-2 py-1 rounded">大正・昭和初期 / 口語自由抒情詩</span>
+                    <h3 class="text-2xl font-bold text-slate-800 m-0 p-0 bg-transparent border-0">『永訣の朝』— 宮沢賢治</h3>
+                </div>
+                <div class="serif-text text-xl bg-white p-4 border-l-4 border-slate-500 rounded my-4 leading-relaxed tracking-wider">
+                    (あめゆじゅとてちてけんじゃ)<br>
+                    うす赤くいつそり立つてゐる雲から<br>
+                    みぞれはびちびち降つてくる<br>
+                    （おまへがたべるこのふたわんのゆきに<br>
+                    わたしのあおいなみだはおちてゐる）
+                </div>
+                <div class="space-y-3 mt-4 text-base">
+                    <p><strong>🔎 表現技法の特徴：</strong> 妹トシの実際の言葉とされる<strong>「南部方言」</strong>と、賢治自身の心象世界の書き言葉が激しく交錯する。さらに括弧書き `( )` を使って、声に出した言葉と、頭の中の葛藤を視覚的に書き分けている。</p>
+                    <p><strong>🎯 テストで問われる核心：</strong> 
+                        「あめゆじゅとてちてけんじゃ（雨雪を取ってきてください）」というトシの最期の願いに対して、賢治は泥混じりの冷たいみぞれを採取する。<br>
+                        トシは、自分が死に向かっていることを自覚しながら、兄（賢治）をこれ以上悲しませないために、また自分の命の最後の証として「天の純粋な白い雪（みぞれ）」を求めた。それに応えようとする賢治の、<strong>「激しい悲痛と、妹の魂が極楽浄土（最高の階梯）へ転生することを希求する祈り」</strong>が表現されている。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ==================== TAB 5: 記述解答の鉄則 ==================== -->
+        <div id="method" class="tab-content bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100">
+            <h2 class="serif-text text-3xl font-bold text-[#1e2e3d] mb-6 border-b-4 border-[#1e2e3d] pb-2">大学入試・高校国語 詩の記述問題完全テンプレート</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                高校国語の詩の記述問題は、「感覚で書く」と0点になります。部分点をかき集めるため、あるいは満点をとるための「文脈の型」を叩き込みましょう。
+            </p>
+
+            <div class="space-y-6">
+                <!-- パターン1 -->
+                <div class="bg-amber-50 p-6 rounded-xl border-l-8 border-amber-500">
+                    <h3 class="text-xl font-bold text-amber-800 m-0 p-0 mb-3 bg-transparent border-0"><i class="fa-solid fa-lightbulb"></i> パターンA：特定のフレーズの「比喩的な意味」を説明する問題</h3>
+                    <div class="bg-white p-4 rounded border border-amber-200 text-base mb-4">
+                        <strong class="text-red-600">【設問例】</strong>「ぱさぱさに乾いてゆく心」とは、どのような心の状態を比喩的に表現したものですか。
+                    </div>
+                    <div class="text-base text-gray-800 leading-relaxed">
+                        <strong>🚨 失敗する答え方：</strong>「心が渇いてしまってやる気が出ない状態。」（※抽象的な説明にとどまり、「比喩」としての対応関係が不十分）<br>
+                        <strong class="text-green-700">⭐ 満点をとる答え方：</strong><br>
+                        「心のみずみずしい感受性を、植物にとっての水になぞらえ、<strong>自らの努力やケア（水やり）を怠ったことで、他者への思いやりや感動する心が失われ、カサカサに枯れ果ててしまった【自分の内面の精神状態】</strong>。」
+                    </div>
+                    <div class="mt-4 bg-[#fffcf0] p-3 rounded text-sm text-amber-900 border border-amber-300">
+                        <strong>📌 採点基準：</strong>比喩の「元々の事象（水がない植物）」と「実際の事象（感受性が枯れた心）」の対比を文章内に明確に示す。
+                    </div>
+                </div>
+
+                <!-- パターン2 -->
+                <div class="bg-blue-50 p-6 rounded-xl border-l-8 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 m-0 p-0 mb-3 bg-transparent border-0"><i class="fa-solid fa-lightbulb"></i> パターンB：詩の展開・「心情の変化」を説明する問題</h3>
+                    <div class="bg-white p-4 rounded border border-blue-200 text-base mb-4">
+                        <strong class="text-red-600">【設問例】</strong>第3連から最終連にかけて、話者の心情はどのように変化しましたか。
+                    </div>
+                    <div class="text-base text-gray-800 leading-relaxed">
+                        <strong>🚨 失敗する答え方：</strong>「悲しい気持ちから、最後は自分で生きようと決心する変化。」（※変化の要因と、各段階の心情記述が不十分）<br>
+                        <strong class="text-green-700">⭐ 満点をとる答え方：</strong><br>
+                        「周囲や状況のせいにして自己の感受性が衰えていくのを他人事のように嘆いていた【受け身の段階】から、<strong>自立した個として責任を持ち、自らの意志で自らの内面を守り育てていこうとする【主体的な覚悟への変化】</strong>。」
+                    </div>
+                    <div class="mt-4 bg-[#f0f7ff] p-3 rounded text-sm text-blue-900 border border-blue-300">
+                        <strong>📌 採点基準：</strong>【Aという当初の状態】から、【契機となる気づき・葛藤】を経て、【Bという最終的な境地】へ至る、という3ステップで構成する。
+                    </div>
+                </div>
+
+                <!-- パターン3 -->
+                <div class="bg-emerald-50 p-6 rounded-xl border-l-8 border-emerald-500">
+                    <h3 class="text-xl font-bold text-emerald-800 m-0 p-0 mb-3 bg-transparent border-0"><i class="fa-solid fa-lightbulb"></i> パターンC：象徴表現の「意図」を説明する問題</h3>
+                    <div class="bg-white p-4 rounded border border-emerald-200 text-base mb-4">
+                        <strong class="text-red-600">【設問例】</strong>作者が『竹』において、地下の暗い「根の繊毛」を執拗に描写した意図は何ですか。
+                    </div>
+                    <div class="text-base text-gray-800 leading-relaxed">
+                        <strong>🚨 失敗する答え方：</strong>「竹の根っこの細かい部分をリアルに描くため。」（※単なる写実的描写と勘違いしており、「象徴」の役割を無視）<br>
+                        <strong class="text-green-700">⭐ 満点をとる答え方：</strong><br>
+                        「目に見える強靭な青竹の姿とは裏腹に、<strong>地下で人知れず細かく震え、病み、周囲の刺激に過敏に反応している無数の根先の繊毛を描くことで、作者自身の【内面世界に潜む鋭敏な不安や病的な神経のありよう】を視覚的に象徴・投影するため</strong>。」
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB 6: 高校応用テスト ==================== -->
+        <div id="quiz" class="tab-content bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100">
+            <h2 class="serif-text text-3xl font-bold text-[#c0392b] mb-6 border-b-4 border-[#c0392b] pb-2">実力診断：高校国語「詩の極限」確認テスト</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                高校定期テストや共通テストで実際に出題される形式を模した、全10問の超実践的なクイズです。<br>
+                100点満点を獲得できれば、国語の「詩」の単元は自信を持って大丈夫です！
+            </p>
+
+            <div class="p-6 bg-[#fcfbfa] border-2 border-[#1e2e3d] rounded-2xl">
+                <!-- 進行状況バー -->
+                <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+                    <div id="quiz-progress" class="bg-[#1e2e3d] h-3 rounded-full transition-all duration-300" style="width: 10%;"></div>
+                </div>
+
+                <div id="quiz-block">
+                    <div id="q-number" class="text-sm font-bold text-[#c0392b] mb-1">QUESTION 1 of 10</div>
+                    <div id="q-text" class="text-xl md:text-2xl font-bold mb-6 text-slate-800"></div>
+                    
+                    <div id="q-options" class="space-y-4">
+                        <!-- ここにオプションボタンが生成される -->
+                    </div>
+                </div>
+
+                <!-- スコア表示（テスト完了後） -->
+                <div id="score-block" class="hidden text-center py-8">
+                    <div class="text-5xl font-bold text-[#c0392b] mb-4"><span id="final-score">0</span> / 100 点</div>
+                    <h3 id="score-comment" class="text-2xl font-bold text-slate-800 mb-6 border-0 bg-transparent p-0"></h3>
+                    <div id="wrong-summary" class="text-left text-base max-w-2xl mx-auto bg-red-50 p-6 rounded-xl border border-red-200 mb-6 hidden">
+                        <h4 class="font-bold text-red-800 mb-3"><i class="fa-solid fa-triangle-exclamation"></i> 今回間違えた項目の解説：</h4>
+                        <ul id="wrong-list" class="list-disc pl-5 space-y-2 text-gray-700"></ul>
+                    </div>
+                    <button onclick="restartQuiz()" class="bg-[#1e2e3d] hover:bg-slate-700 text-white font-bold px-8 py-3 rounded-lg text-lg transition-all">
+                        もう一度テストに挑戦する
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- フッターエリア -->
+    <footer class="bg-[#1e2e3d] text-[#f6f5f2] py-8 px-4 mt-20 text-center border-t-4 border-[#1e2e3d]">
+        <p class="text-sm text-gray-400">高校国語・詩の単元完全攻略サイト</p>
+        <p class="text-xs text-gray-500 mt-2">© 2026 High School Poetry Mastery. All rights reserved.</p>
+    </footer>
+
+    <!-- インタラクティブJavaScript -->
+    <script>
+        // タブ切り替え制御
+        function switchTab(tabId) {
+            // 全てのタブコンテンツを非表示に
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // 全てのタブボタンからアクティブスタイルを排除
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-[#1e2e3d]', 'text-white');
+                btn.classList.add('text-[#1e2e3d]', 'hover:bg-gray-100');
+            });
+
+            // 指定されたタブコンテンツを表示
+            const activeTab = document.getElementById(tabId);
+            activeTab.classList.add('active');
+
+            // クリックされたボタンのスタイルをアクティブに
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-[#1e2e3d]', 'hover:bg-gray-100');
+            activeBtn.classList.add('active', 'bg-[#1e2e3d]', 'text-white');
+
+            // クイズが切り替わったら初期化
+            if (tabId === 'quiz') {
+                restartQuiz();
+            }
+        }
+
+        // 10問高校範囲国語詩クイズの定義
+        const questions = [
+            {
+                q: "「ペンは剣よりも強し」における「ペン（言論）」のように、密接な関係を持つ具体的な事物で抽象概念を表す比喩は何と呼ばれるか？",
+                opts: ["隠喩", "換喩（メトニミー）", "提喩（シネクドキ）", "擬人法"],
+                ans: 1,
+                exp: "換喩（メトニミー）は、関係性の深い別の事物で言い換える技法です（ペン＝言論）。"
+            },
+            {
+                q: "「人はパンのみにて生きるにあらず」の「パン（食べ物全般）」のように、一部分で全体を表したり全体で一部分を表す比喩は何と呼ばれるか？",
+                opts: ["直喩", "擬人法", "換喩", "提喩（シネクドキ）"],
+                ans: 3,
+                exp: "提喩（シネクドキ）は、全体と部分の包含関係を用いた比喩です（パン＝食料全体）。"
+            },
+            {
+                q: "北原白秋の詩に見られる「黄色い声」や「冷たいメロディ」のように、異なる複数の五感を組み合わせて表現する修辞法を何というか？",
+                opts: ["反復法", "倒置法", "共感覚表現", "象徴表現"],
+                ans: 2,
+                exp: "共感覚表現は、聴覚を視覚（黄色い）や触覚（冷たい）など別の感覚で重ねて表現します。"
+            },
+            {
+                q: "明治時代に個人の自由な情熱や悲哀を歌い、島崎藤村の『若菜集』に代表される文学思潮の名称は何か？",
+                opts: ["ロマン主義（浪漫主義）", "自然主義", "モダニズム", "プロレタリア詩派"],
+                ans: 0,
+                exp: "明治時代の文学を代表する『若菜集』などは、感情を素直に謳歌する「浪漫（ロマン）主義」です。"
+            },
+            {
+                q: "大正時代、詩集『月に吠える』を発表し、現代の口語自由詩の音楽的・芸術的完成者とされる詩人は誰か？",
+                opts: ["中原中也", "谷川俊太郎", "萩原朔太郎", "島崎藤村"],
+                ans: 2,
+                exp: "萩原朔太郎は、日常語（口語）で最高峰の芸術詩を築いた「口語自由詩の完成者」です。"
+            },
+            {
+                q: "萩原朔太郎の代表作『竹』において、地下を不気味に這う「根の先から生える繊毛」が本当に象徴しているものは何か？",
+                opts: ["日本の豊かな大地の自然美", "作者自身の過敏で病んでいる繊細な神経や不安", "人間のたくましくしぶとい生命力", "死者たちの未練や怨念"],
+                ans: 1,
+                exp: "『竹』の地下の細かい繊毛は、作者自身の過敏で病的に傷つきやすい「内面の精神（神経）」の象徴です。"
+            },
+            {
+                q: "中原中也の『汚れつちまつた悲しみに……』において、話者が抱く「悲しみ」の性質として最も正しい解釈は何か？",
+                opts: ["社会問題や戦争に対して怒る、他者への深い同情", "純粋無垢な状態から、社会や人生によって傷つき、汚れて固まってしまった絶対的な孤独の悲しみ", "学校の試験や受験に失敗してしまった一時的なショック", "恋人に嫌われ、振られてしまった直後の未練"],
+                ans: 1,
+                exp: "中也のいう「汚れつちまつた悲しみ」とは、世俗の荒波により傷つき、純真さを失ってしまった自己の絶望的な喪失感を指します。"
+            },
+            {
+                q: "茨木のり子の詩『自分の感受性くらい』において、「自分の感受性くらい自分で守れ、ばかものよ」と叱咤している具体的な対象は誰か？",
+                opts: ["自分の言うことを全く理解してくれない家族や世間の人々", "社会や時代のせいにして、自らの心が乾いていくのを放置している甘えた大人や自分自身", "若者の自由な心を奪う、厳格な学校のルールや教師たち", "戦争を指導した軍人や古い体制の政治家たち"],
+                ans: 1,
+                exp: "この詩における叱咤の矛先は、環境のせいにして自分自身を枯らしていく「他力本願な態度（自分自身を含む）」に向けられています。"
+            },
+            {
+                q: "宮沢賢治『永訣の朝』において、病床の妹トシが発した最期の言葉「あめゆじゅとてちてけんじゃ」の「あめゆじゅ（雨雪）」がトシに与えた重要な意味とは？",
+                opts: ["熱病で乾いた喉を潤し、最期の命を兄（賢治）と共有するための、天上の純粋な証", "兄に早く新しい恋人を見つけてほしいという裏のメッセージ", "兄がこれからも農業指導を頑張るようにという約束の象徴", "単に熱を冷ますための、看護師から指示された氷の代用品"],
+                ans: 0,
+                exp: "トシが求めた雨雪（あめゆじゅ）は、熱病の咽喉を冷やすのみならず、魂の救済を願う賢治と最期に心を通わせるための「純粋な媒介物」です。"
+            },
+            {
+                q: "高校入試や記述式試験で、表現技法「体言止め」の効果を説明する際に、絶対に盛り込むべき不可欠なキーワードはどれか？",
+                opts: ["リズムを急速に早める効果", "あとに強い【余韻】を残す効果", "出来事を客観的に報告する効果", "言葉の響きを不快にする効果"],
+                ans: 1,
+                exp: "国語の記述採点において、体言止めの主たる効果は「言葉の後に強い【余韻を残す】」こととされています。"
+            }
+        ];
+
+        let currentQ = 0;
+        let score = 0;
+        let wrongAnswers = [];
+
+        function restartQuiz() {
+            currentQ = 0;
+            score = 0;
+            wrongAnswers = [];
+            document.getElementById('quiz-block').classList.remove('hidden');
+            document.getElementById('score-block').classList.add('hidden');
+            document.getElementById('wrong-summary').classList.add('hidden');
+            updateProgress();
+            renderQuestion();
+        }
+
+        function updateProgress() {
+            const percent = ((currentQ + 1) / questions.length) * 100;
+            document.getElementById('quiz-progress').style.width = percent + '%';
+            document.getElementById('q-number').innerText = `QUESTION ${currentQ + 1} of ${questions.length}`;
+        }
+
+        function renderQuestion() {
+            if (currentQ >= questions.length) {
+                showResults();
+                return;
+            }
+
+            const q = questions[currentQ];
+            document.getElementById('q-text').innerText = q.q;
+
+            const optionsContainer = document.getElementById('q-options');
+            optionsContainer.innerHTML = '';
+
+            q.opts.forEach((opt, idx) => {
+                const button = document.createElement('button');
+                button.className = "w-full text-left bg-white border-2 border-slate-200 hover:border-[#1e2e3d] hover:bg-slate-50 p-4 rounded-xl text-lg font-medium transition-all duration-200 shadow-sm block";
+                button.innerHTML = `<span class="inline-block bg-slate-100 text-slate-800 font-bold rounded-full w-7 h-7 text-center leading-7 mr-3 text-sm">${idx + 1}</span> ${opt}`;
+                button.onclick = () => handleAnswer(idx);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function handleAnswer(selectedIdx) {
+            const q = questions[currentQ];
+            if (selectedIdx === q.ans) {
+                score += 10;
+                alert("⭕ 正解！お見事です！\n\n【解説】" + q.exp);
+            } else {
+                wrongAnswers.push({
+                    num: currentQ + 1,
+                    q: q.q,
+                    correct: q.opts[q.ans],
+                    exp: q.exp
+                });
+                alert(`❌ ざんねん！不正解です。\n\n正しい答え：『${q.opts[q.ans]}』\n\n【解説】${q.exp}`);
+            }
+
+            currentQ++;
+            if (currentQ < questions.length) {
+                updateProgress();
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-block').classList.add('hidden');
+            document.getElementById('score-block').classList.remove('hidden');
+            document.getElementById('quiz-progress').style.width = '100%';
+
+            document.getElementById('final-score').innerText = score;
+
+            const comment = document.getElementById('score-comment');
+            if (score === 100) {
+                comment.innerText = "🎉 驚異的な実力です！高校範囲の詩壇マスター！";
+                comment.className = "text-2xl font-bold text-emerald-600 mb-6";
+            } else if (score >= 80) {
+                comment.innerText = "👍 素晴らしい出来栄え！大学入試でも通用するレベルです！";
+                comment.className = "text-2xl font-bold text-blue-600 mb-6";
+            } else if (score >= 60) {
+                comment.innerText = "📖 平均レベルは突破。間違えた部分をしっかり復習しておきましょう！";
+                comment.className = "text-2xl font-bold text-amber-600 mb-6";
+            } else {
+                comment.innerText = "✍ 基礎の抜けがあります。もう一度「文学史」や「各詩の解説」を読み返してください。";
+                comment.className = "text-2xl font-bold text-red-600 mb-6";
+            }
+
+            // 間違えた箇所の解説まとめ
+            if (wrongAnswers.length > 0) {
+                const summaryDiv = document.getElementById('wrong-summary');
+                summaryDiv.classList.remove('hidden');
+                
+                const list = document.getElementById('wrong-list');
+                list.innerHTML = '';
+                wrongAnswers.forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>Q${item.num}：${item.q}</strong><br>` + 
+                                  `<span class="text-emerald-700">【正答】：${item.correct}</span><br>` +
+                                  `<span class="text-gray-600 text-sm">【解説】：${item.exp}</span>`;
+                    list.appendChild(li);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
