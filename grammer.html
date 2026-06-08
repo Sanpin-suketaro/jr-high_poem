@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>難関校突破！中学国語文法ナビ</title>
+    <style>
+        :root {
+            --primary-color: #1e3799;
+            --secondary-color: #4a69bd;
+            --accent-color: #e55039;
+            --bg-color: #f1f2f6;
+            --text-color: #2f3542;
+            --sidebar-bg: #ffffff;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .app-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        #sidebar {
+            width: 280px;
+            background-color: var(--sidebar-bg);
+            box-shadow: 2px 0 15px rgba(0,0,0,0.05);
+            overflow-y: auto;
+            padding: 1.5rem 1rem;
+        }
+
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 0.8rem;
+        }
+
+        #sidebar a {
+            display: block;
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            border-left: 4px solid transparent;
+        }
+
+        #sidebar a:hover {
+            background-color: #f7f8fa;
+            border-left-color: var(--secondary-color);
+        }
+
+        #sidebar a.active {
+            background-color: var(--secondary-color);
+            color: white;
+            border-left-color: var(--primary-color);
+        }
+
+        #content {
+            flex: 1;
+            padding: 2rem 3rem;
+            overflow-y: auto;
+            background-color: var(--bg-color);
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.8rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h3::before {
+            content: "■";
+            color: var(--accent-color);
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 60%, #ffeaa7 0);
+            font-weight: bold;
+            padding: 0 4px;
+        }
+
+        .test-tip {
+            background-color: #fff3f3;
+            border-left: 5px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .test-tip h4 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            border: 1px solid #dfe6e9;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>難関校突破！中学国語文法ナビ</h1>
+            <p>基礎から超発展、作用・識別の極意まで網羅</p>
+        </div>
+    </header>
+    
+    <div class="app-container">
+        <nav id="sidebar">
+            <ul>
+                <li><a href="#" data-target="ch1" class="active">中1文法（文節・品詞の基礎）</a></li>
+                <li><a href="#" data-target="ch2">中2文法（用言・体言・付属語）</a></li>
+                <li><a href="#" data-target="ch3">中3文法（敬語の5分類）</a></li>
+                <li><a href="#" data-target="adv">【発展】難関校向け識別問題</a></li>
+                <li><a href="#" data-target="test">テスト直前！得点直結テクニック</a></li>
+            </ul>
+        </nav>
+        
+        <main id="content">
+            <div id="content-area">
+                </div>
+        </main>
+    </div>
+
+    <script>
+        const grammarData = {
+            ch1: `
+                <div class="card">
+                    <h2>中1文法：文節・品詞の基礎と構造</h2>
+                    <p>国語の文法は、英語の「5文型」と同じように、文の構造を論理的に把握することがすべての出発点です。</p>
+                    
+                    <h3>自立語と付属語の完全理解</h3>
+                    <p>品詞はまず大きく2つに分かれます。この区別が後々の「識別問題」の要になります。</p>
+                    <ul>
+                        <li><span class="highlight">自立語</span>：それだけで文節の最初になれる語。（例：走る、美しい、本、とても）</li>
+                        <li><span class="highlight">付属語</span>：常に自立語の下にくっついて意味を添える語。（例：れる、られる、ない、て、に、を、は）</li>
+                    </ul>
+
+                    <div class="test-tip">
+                        <h4>【実戦ポイント】文節の区切り方の極意</h4>
+                        <p>「ネ」や「サ」を入れて区切るのは小学生まで。進学校のテストでは<strong>「自立語の直前で切る」</strong>という法則を用います。これにより、複雑な文でも機械的に文節を分けることが可能になります。</p>
+                    </div>
+                </div>
+            `,
+            ch2: `
+                <div class="card">
+                    <h2>中2文法：用言の活用と付属語の深掘り</h2>
+                    <p>動詞・形容詞・形容動詞（用言）の活用と、助詞・助動詞の基礎です。ここは古典文法への重要な架け橋となります。</p>
+                    
+                    <h3>活用形の決定法則</h3>
+                    <p>活用形（未然・連用・終止・連体・仮定・命令）は、<strong>直後に来る語（下接語）</strong>で100%決まります。</p>
+                    <table>
+                        <tr><th>活用形</th><th>直後に来る代表的な語</th></tr>
+                        <tr><td>未然形</td><td>ない・う・よう・れる・られる・せる・させる</td></tr>
+                        <tr><td>連用形</td><td>ます・た・て・（読点「、」）</td></tr>
+                        <tr><td>終止形</td><td>。（句点）・と・から</td></tr>
+                        <tr><td>連体形</td><td>とき・こと・名詞全般・ので</td></tr>
+                        <tr><td>仮定形</td><td>ば</td></tr>
+                        <tr><td>命令形</td><td>（文が終わる命令表現）</td></tr>
+                    </table>
+
+                    <div class="test-tip">
+                        <h4>【実戦ポイント】形容動詞と名詞＋断定の助動詞の区別</h4>
+                        <p>「静かだ（形容動詞）」と「学生だ（名詞＋助動詞）」の識別は頻出です。<strong>「〜な」に変換して下へ名詞を繋げられるか</strong>で判定します。「静かな時」はOK（形容動詞）。「学生な時」はNG（名詞＋助動詞）。</p>
+                    </div>
+                </div>
+            `,
+            ch3: `
+                <div class="card">
+                    <h2>中3文法：敬語の5分類（発展）</h2>
+                    <p>文部科学省の指針改定により、従来の3分類（尊敬・謙譲・丁寧）から、現在は難関校を中心に<strong>5分類</strong>での理解が求められます。</p>
+                    
+                    <h3>敬語の5分類マトリクス</h3>
+                    <ul>
+                        <li><strong>尊敬語</strong>：<span class="highlight">相手の動作</span>を高める。（例：おっしゃる、召し上がる）</li>
+                        <li><strong>謙譲語Ⅰ</strong>：相手に向かう<span class="highlight">自分の動作</span>をへりくだる。（例：申し上げる、伺う）※動作の受け手を立てる</li>
+                        <li><strong>謙譲語Ⅱ（丁重語）</strong>：自分の動作を、聞き手に対して丁寧に言う。（例：申す、参る）※動作の受け手は関係ない</li>
+                        <li><strong>丁寧語</strong>：文末を丁寧にする。（例：です、ます）</li>
+                        <li><strong>美化語</strong>：言葉自体を上品にする。（例：お茶、お弁当）</li>
+                    </ul>
+
+                    <div class="test-tip">
+                        <h4>【実戦ポイント】「伺う」と「参る」の決定的な違い</h4>
+                        <p>「先生のところに伺う（謙譲語Ⅰ）」は先生を高めていますが、「弟のところに参る（丁重語）」は弟を高めているわけではなく、話を聞いている「あなた（聞き手）」に対して丁寧に述べているだけです。この違いを記述させる問題が上位校で頻出します。</p>
+                    </div>
+                </div>
+            `,
+            adv: `
+                <div class="card">
+                    <h2>【発展】難関校向け識別問題</h2>
+                    <p>入試で最も差がつくのが「同じひらがなの識別」です。感覚ではなく、論理的な置換テストで解きます。</p>
+                    
+                    <h3>1. 「ない」の徹底識別</h3>
+                    <p>以下の3パターンの判別は必須です。</p>
+                    <ul>
+                        <li><strong>助動詞の「ない」</strong>：動詞につく。<br>→ <em>【判別法】「ぬ」に置き換えられる。</em>（例：行かない → 行かぬ 〇）</li>
+                        <li><strong>形容詞の「ない」</strong>：名詞や形容動詞の連用形につく。<br>→ <em>【判別法】「ありません」に置き換えられる。</em>（例：美しくない → 美しくありません 〇）</li>
+                        <li><strong>形容詞の一部</strong>：単語そのもの。<br>→ <em>【判別法】分解できない。</em>（例：危ない、少ない）※「危ぬ」とは言えない。</li>
+                    </ul>
+
+                    <h3>2. 「れる・られる」の識別</h3>
+                    <p>受身・可能・自発・尊敬の4つの意味を持ちます。</p>
+                    <ul>
+                        <li><strong>自発</strong>：自然とそうなる。「〜（感情・思考）れる」の形。（例：故郷が案じられる）</li>
+                        <li><strong>可能</strong>：できる。「〜ことができる」に置換可能。（例：朝早く起きられる）</li>
+                        <li><strong>尊敬</strong>：目上の人の動作。（例：先生が来られる）※「れる・られる」を消しても意味が通じる。</li>
+                        <li><strong>受身</strong>：上記以外。動作を受ける。（例：犬に噛まれる）※「〜に」を補えることが多い。</li>
+                    </ul>
+                </div>
+            `,
+            test: `
+                <div class="card">
+                    <h2>テスト直前！得点直結テクニック</h2>
+                    <p>文法問題や読解の記述問題で、無駄な失点を防ぐためのテクニックです。</p>
+                    
+                    <h3>1. 記述問題の「文末の呼応」</h3>
+                    <p>採点官が最初に見るのは「文末」です。ここがズレているだけで、内容は合っていても容赦なく減点されます。</p>
+                    <ul>
+                        <li>「なぜですか」→ <span class="highlight">「〜から。」「〜ため。」</span></li>
+                        <li>「どのようなことですか」→ <span class="highlight">「〜こと。」</span></li>
+                        <li>「どういう意味ですか」→ <span class="highlight">「〜という意味。」</span></li>
+                    </ul>
+
+                    <h3>2. 抜き出し問題の法則</h3>
+                    <p>「〇文字で抜き出しなさい」という問題は、以下のルールに絶対に従ってください。</p>
+                    <ul>
+                        <li><strong>句読点や記号も1文字</strong>としてカウントする.</li>
+                        <li>本文中の文字を<strong>一文字たりとも変えない</strong>（勝手に漢字を開いたり、平仮名にしない）。</li>
+                        <li>指定がない限り、抜き出した語の最初と最後の文字が本文と完全に一致するか確認する。</li>
+                    </ul>
+                    
+                    <div class="test-tip">
+                        <h4>【マインドセット】国語は「論理パズル」である</h4>
+                        <p>進学校の国語において、筆者の気持ちを「想像」する必要はありません。すべて本文中に「証拠」があり、文法という「ルール」に従って答えを導き出す、数学と同じ論理パズルだと認識を切り替えてください。</p>
+                    </div>
+                </div>
+            `
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('#sidebar a');
+            const contentArea = document.getElementById('content-area');
+
+            // 初期コンテンツの読み込み
+            contentArea.innerHTML = grammarData['ch1'];
+
+            // ナビゲーションのクリックイベント
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // すべてのリンクからactiveクラスを削除
+                    links.forEach(l => l.classList.remove('active'));
+                    
+                    // クリックされたリンクにactiveクラスを追加
+                    e.target.classList.add('active');
+                    
+                    // 対応するコンテンツをフェードイン風に挿入
+                    const targetKey = e.target.getAttribute('data-target');
+                    contentArea.style.opacity = 0;
+                    
+                    setTimeout(() => {
+                        contentArea.innerHTML = grammarData[targetKey];
+                        contentArea.style.transition = 'opacity 0.3s ease';
+                        contentArea.style.opacity = 1;
+                        
+                        // スクロールをトップに戻す
+                        document.getElementById('content').scrollTop = 0;
+                    }, 100);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
